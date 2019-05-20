@@ -1,44 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Core CSS for styling -->
-    <link rel="stylesheet" href="css/app.css">
-
-    <!-- myFavIcon -->
-    <link rel="shortcut icon" type="image/png" href="img/myLogo/new-logo.png">
-
-    <!-- Custom fonts for this template -->
-    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-    <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">    
+<?php
+session_start();
+// include 'config/nav.php'; 
+//session_start();
+//google api
+// if (!isset($_SESSION['token'])) {
+//   header("Location: login.php");
+//   exit();
+// }
 
 
-    <title>Pinoy Technology</title>
-</head>
-<body>
+// if (!isset($_SESSION['access_token'])) {
+//     header('Location: login.php');
+// }
 
+// require 'config/header.php';
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+// if (!isset($_SESSION['access_token'])) {
+//     header('Location: login.php');
+//     exit();
+//}
+if (isset($_SESSION['username'])) {
+    header("Location: home.php");
+}
+
+  //database coonection
+ include 'config/database_connection.php'; 
  
-</body>
-</html>
+    //select to database from globe table
+    $sql = "SELECT * FROM globe ORDER BY datetime DESC";
+    //preapre the query
+    $statement = $conn->prepare($sql);
+    $statement->execute();
+    $post = $statement->fetchAll(PDO::FETCH_ASSOC); 
+ 
+?>
+ 
+ <?php include 'config/header.php';  ?>
+ <?php include 'config/nav.php'; ?>
+  <!-- starting point to retrive all the data into database -->
+    <div class="container">
+    <aside>
+        <div class="asideright"> 
+          <p class="popularThisWeek"><i class="fa fa-fire"></i> Popular This Week</p>           
+        </div>
+      </aside>  
+    </div>         
+    <div class="container">
+        <h1>Lates Post</h1>
+          <?php foreach ($post as $mypost) : ?> 
+            <div class="post-bgc">
+            <ul>
+              <li><img src="img-uploads/<?php echo $mypost['image']; ?>" alt="" srcset=""></li>
+              <li><h3><?php echo $mypost['promo']; ?></h3></li>
+              <li><small>Create one <?php echo $mypost['datetime']; ?></small></li>
+              <li><p class="description"><?php echo substr($desc = $mypost['description'], 0,200); ?></p></li>
+              <li><a href="post.php?id=<?php $mypost['id'];?>">Read more</a></li>
+            </ul>
+            </div>
+          <?php endforeach ?>
+
+          <h1>You are login</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <img src="<?php echo $_SESSION['userdata']['picture']['url']; ?>" alt="" sizes="" srcset="">
+        </div>
+        <div class="col-md-9">
+            <table class="table table-hover table-border">
+                <tbody>
+                    <tr>
+                        <td>Name: </td>
+                        <td><?php echo $_SESSION['userdata']['name']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>first Name: </td>
+                        <td><?php echo $_SESSION['userdata']['first_name']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name:</td>
+                        <td><?php echo $_SESSION['userdata']['last_name']; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+        
+              <!-- smooth scrool return to Top -->
+         <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+    </div>	
+<?php include 'config/footer.php'; ?>       
