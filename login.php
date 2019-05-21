@@ -11,11 +11,13 @@
     $loginUrl = $helper->getLoginUrl($redirectURL, $permissions);
     //fb sesion
     if (isset($_SESSION['access_token'])) {
-        header('Location: home.php');
+        header('Location: index.php');
+        exit();
     }
     // else
     if(isset($_SESSION['username'])){
-         header('Location: home.php');
+         header('Location: index.php');
+         exit();
     }
 
     //google redirect login
@@ -59,6 +61,7 @@ if (isset($_POST['submit'])) {
                         $_SESSION['password'] = $result['password'];
                         $_SESSION['email'] = $result['email'];
                         header("Location: index.php");
+                        exit();
                 
                         if (!empty($_POST['rememberme'])) {
                             setcookie('username', $username, time() +3600);
