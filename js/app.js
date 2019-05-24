@@ -40,13 +40,20 @@ $(window).scroll(function() {
 //login shake when it's user wrong usernam or password
 $(".alert").effect("shake");
 
-//read more
-  var readMore = $(".description").html();
-  var lessText= readMore.substr(0, 100);
-
-  if(readMore.lenght > 100){
-    $(".description").html(lessText);
-  }else{
-    $(".description").html(readMore);
-  }
+//profil setting logout
+  var arrowdown = $('.fa-caret-up');
+  var form = $('.logoutform');
+  var status = false;
+  $('#down').click(function(event){
+      event.preventDefault();
+      if (status == false) {
+        form.fadeIn();
+        arrowdown.fadeIn();
+        status = true;
+      }else{
+        arrowdown.fadeOut();
+        form.fadeOut();
+        status = false;
+      }
+  });
 });

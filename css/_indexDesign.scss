@@ -3,18 +3,19 @@
     font-family: 'Montserrat', sans-serif;
 }
 h1{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'sans-serif';
+    font-weight: 200;
 }
 .post-bgc{
     margin-bottom: 15px;
-    background-color: #d3dadd;
+    background-color: rgb(242, 242,242);
     max-width: 67%;
     height: 200px;
     box-shadow: 0 1px 5px rgba(104,104,104,0.8); 
     padding: 15px;
-    
+    border-radius: 5px;
     small{
-        font-weight: bold;
+        font-weight: 200;
     }
   
     img{
@@ -51,7 +52,6 @@ h1{
         position: relative;
         top: -25px;
         left: -8px;
-        font-family: 'Montserrat', sans-serif;
     }
     h3{
         font-size: 18px;

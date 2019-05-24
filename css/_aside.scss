@@ -1,18 +1,19 @@
 .asideright{
-    padding-top: 120px;
+    padding-top: 500px;
     float: right;
     margin: 10px;
-    background-color: #d3dadd;
+    background-color: rgb(242, 242,242);
+    box-shadow: 0 1px 5px rgba(104,104,104,0.8);
     border-radius: 5px;
     padding: 5px;
-    width: 30%;
-    font-family: 'Montserrat', sans-serif;
+    width: 25%;
+    font-family: 'sans-serif';
     text-align: center;
     margin-top: 60px;
     height: 500px;
     .popularThisWeek{
         margin-top: 15px;
         padding-bottom: 10px;
-       border-bottom: 1px solid #000;
+        border-bottom: 1px solid #000;
     }
 }

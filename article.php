@@ -1,12 +1,13 @@
 <?php
-session_start();
- include 'config/database_connection.php';
-?>
+    session_start();
+    include 'config/database_connection.php'; 
+ ?>
 
 <?php include 'config/header.php'; ?>
-<div class="container">
-    <h1>Globe Promo</h1>
-        <?php
+
+    <div class="container">
+    <h1>Article </h1>
+        <?php 
             $id = $_GET['promo'];
             //select to database from globe table
             $sql = "SELECT * FROM globe WHERE id = :id   ";
@@ -18,9 +19,7 @@ session_start();
             if ($row > 0) {
                 foreach ($post as $mySearch) {
                     echo '<div class="article-box">
-
                             <h3>'.$mySearch['promo'].'</h3>
-                            <img src="img-uploads/'.$mySearch['image'].' " alt="" srcset="">
                             <p>'.$mySearch['description'].'</p>
                     </div>';
                 }
@@ -29,4 +28,6 @@ session_start();
     </div>
 
 
+
 <?php include 'config/footer.php'; ?>
+

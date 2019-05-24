@@ -1,24 +1,19 @@
-<?php include '../config/database_connection.php'; ?>
+<?php
+
+session_start(); 
+include '../config/database_connection.php'; ?>
 
 
-<?php 
-    include '../header.php';?>
+
+<?php include '../config/header.php';?>
 <?php  
-
-    // session_start(); 
-
-    if (isset($_SESSION['id'])) {
-    echo '<form action="../logout.php" method="post">
-    <button type="submit" name="logout">logout</button>
-    </form>';
-    echo '<p>Your are in</p>';
-
-    }else {
-        echo '<p>Your are logout</p>';
-    }
+if (!isset($_SESSION['user'])) {
+    header('HTTP/1.0 403 Forbidden');
+    exit;
+  }
 
    
 ?>
  <h1>helloworld</h1>
 
-<?php include '../footer.php';
+<?php include '../config/footer.php' ?>;

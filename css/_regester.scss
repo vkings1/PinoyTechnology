@@ -1,0 +1,26 @@
+.container {
+    margin-top: 135px;
+    font-family: 'Montserrat', sans-serif;
+    .form-control {
+        width: 60%;
+    }
+
+    .paragform{
+        font-size: 13px;
+    }
+    .btn-success {
+        color: #fff;
+        background-color: #2b93b2;
+        border-color: #2b93b2;
+    }
+    .btn-success:hover {
+        color: #fff;
+        background-color: #29abe2;
+        border-color: #29abe2;
+    }
+    hr{
+        position: relative;
+        right: 80px;
+        width: 60%;
+    }
+}

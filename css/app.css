@@ -234,6 +234,10 @@ img {
   height: 75px;
 }
 
+#dropdown01 {
+  cursor: pointer;
+}
+
 .navbar-dark
 .navbar-nav .active > .nav-link, .navbar-dark
 .navbar-nav .nav-link.active, .navbar-dark
@@ -314,6 +318,71 @@ a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.fa.fa-bell {
+  font-size: 18px;
+  margin-right: 18px;
+  color: #fff;
+}
+
+.fa.fa-user-circle {
+  font-size: 25px;
+  margin-right: 5px;
+  color: #fff;
+}
+
+.fa.fa-caret-down {
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.fa.fa-caret-up {
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  font-size: 30px;
+  color: #fff;
+  display: none;
+  z-index: 50000;
+}
+
+.logoutform {
+  position: absolute;
+  width: 170px;
+  height: 250px;
+  background: #fff;
+  border-radius: 5px;
+  right: 37px;
+  top: 60px;
+  -webkit-box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+          box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  border-bottom: 7px solid rgba(104, 104, 104, 0.8);
+  display: none;
+}
+
+.logoutform form {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1em;
+  margin-top: 15px;
+  padding: 10px 10px;
+}
+
+.logoutform form a {
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logoutform form .formlayout {
+  padding-bottom: 15px;
+}
+
+.logoutform form .formlayout:child(3) {
+  margin-top: 15px;
+}
+
 @media (max-width: 992px) {
   #navbarsExampleDefault {
     background-color: red;
@@ -360,14 +429,16 @@ a:hover {
 
 /* end of scroll to top */
 .asideright {
-  padding-top: 120px;
+  padding-top: 500px;
   float: right;
   margin: 10px;
-  background-color: #d3dadd;
+  background-color: #f2f2f2;
+  -webkit-box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+          box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   border-radius: 5px;
   padding: 5px;
-  width: 30%;
-  font-family: 'Montserrat', sans-serif;
+  width: 25%;
+  font-family: 'sans-serif';
   text-align: center;
   margin-top: 60px;
   height: 500px;
@@ -385,21 +456,23 @@ a:hover {
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'sans-serif';
+  font-weight: 200;
 }
 
 .post-bgc {
   margin-bottom: 15px;
-  background-color: #d3dadd;
+  background-color: #f2f2f2;
   max-width: 67%;
   height: 200px;
   -webkit-box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
           box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   padding: 15px;
+  border-radius: 5px;
 }
 
 .post-bgc small {
-  font-weight: bold;
+  font-weight: 200;
 }
 
 .post-bgc img {
@@ -439,11 +512,41 @@ h1 {
   position: relative;
   top: -25px;
   left: -8px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .post-bgc h3 {
   font-size: 18px;
   font-weight: bold;
+}
+
+.container {
+  margin-top: 135px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container .form-control {
+  width: 60%;
+}
+
+.container .paragform {
+  font-size: 13px;
+}
+
+.container .btn-success {
+  color: #fff;
+  background-color: #2b93b2;
+  border-color: #2b93b2;
+}
+
+.container .btn-success:hover {
+  color: #fff;
+  background-color: #29abe2;
+  border-color: #29abe2;
+}
+
+.container hr {
+  position: relative;
+  right: 80px;
+  width: 60%;
 }
 /*# sourceMappingURL=app.css.map */
