@@ -8,7 +8,6 @@ session_start();
     $statement = $conn->prepare($sql);
     $statement->execute();
     $post = $statement->fetchAll(PDO::FETCH_ASSOC); 
- 
 ?>
  
  <?php include 'config/header.php';  ?>
