@@ -1,29 +1,4 @@
 $(document).ready(function(){
-//     $("[data-toggle=popover]").popover({html:true})  
-    
-//     var showPopover = function () {
-//         $(this).popover('show');
-//     }
-//     , hidePopover = function () {
-//         $(this).popover('hide');
-//     };
-// $('#ex1').popover({
-//         content: 'An Example1 popover',
-//         trigger: 'hover',
-//         placement:'top'
-//     })
-// $('#ex2').popover({
-//         content: 'An Example2 popover',
-//         trigger: 'hover',
-//         placement:'top'
-//     }) 
-
-// $('#ex3').popover({
-//         content: 'An Example3 popover',
-//         trigger: 'hover',
-//         placement:'top'
-//     })  
-
 // ===== Scroll to Top ==== 
 $(window).scroll(function() {
     if ($(this).scrollTop() >= 600) {        // If page is scrolled more than 50px
@@ -56,4 +31,5 @@ $(".alert").effect("shake");
         status = false;
       }
   });
+  
 });

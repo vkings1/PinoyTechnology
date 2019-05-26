@@ -3,7 +3,16 @@
     include 'config/database_connection.php'; 
  ?>
 
-<?php include 'config/header.php'; ?>
+<?php 
+    include 'config/header.php';
+?>
+    <div class="container">
+        <aside>
+            <div class="asideright"> 
+            <p class="popularThisWeek"><i class="fa fa-fire"></i> Trens this Week</p>           
+            </div>
+        </aside>  
+    </div> 
 
     <div class="container">
     <h1>Search result </h1>
@@ -25,6 +34,8 @@
                                 <p>'.$mySearch['description'].'</p>
                         </div></a>';
                    }
+                }else {
+                    echo '<div>Did not found your keyword</div>';
                 }
             }
         

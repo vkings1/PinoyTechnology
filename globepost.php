@@ -26,16 +26,28 @@ session_start();
             $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             if ($row > 0) {
                 foreach ($post as $mySearch) {
-                    echo '<div class="article-box">
 
+                    if (!isset($_SESSION['usertype'])) {
+                        echo '<div class="article-box">
                             <h3>'.$mySearch['promo'].'</h3>
                             <img src="img-uploads/'.$mySearch['image'].' " alt="" srcset="">
                             <p>'.$mySearch['description'].'</p>
-                    </div>';
+                        </div>';
+                    }elseif (isset($_SESSION['usertype'])) {
+                       echo '<div class="article-box">
+                       <h3>'.$mySearch['promo'].'</h3>
+                       <img src="img-uploads/'.$mySearch['image'].' " alt="" srcset="">
+                       <p>'.$mySearch['description'].'</p>
+                        </div>
+                       <form action="" method="post">
+                            <div><textarea name="" id="" cols="30" rows="10"></textarea></div>
+                            <input type="submit" value="Comment">
+                        </form>';
+                    }
+                   
                 }
             }
         ?>
     </div>
-
 
 <?php include 'config/footer.php'; ?>

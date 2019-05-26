@@ -58,12 +58,8 @@ if (isset($_POST['submit'])) {
                    if ($result['verified'] == 0) {
                         $Messgae_error = 'Please verified your account';
                     }
-                    elseif ($result['usertype'] == 0) {
+                    elseif ($result['usertype'] == 'admin') {
                             session_start();
-                            $_SESSION['id'] = $result['id'];
-                            $_SESSION['username'] = $result['username'];
-                            $_SESSION['password'] = $result['password'];
-                            $_SESSION['email'] = $result['email'];
                             $_SESSION['usertype'] = $result['usertype'];
                             header("Location: admin/admin.php");
                             exit();
@@ -74,12 +70,8 @@ if (isset($_POST['submit'])) {
                                 setcookie('username','');
                                 setcookie('password', '');
                             }
-                        }elseif ($result['usertype'] == 1) {
+                        }elseif ($result['usertype'] == 'user') {
                             session_start();
-                            $_SESSION['id'] = $result['id'];
-                            $_SESSION['username'] = $result['username'];
-                            $_SESSION['password'] = $result['password'];
-                            $_SESSION['email'] = $result['email'];
                             $_SESSION['usertype'] = $result['usertype'];
                             header("Location: index.php");
                             exit();
@@ -128,7 +120,7 @@ if (isset($_POST['submit'])) {
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 
-    <title>Pinoy Technology</title>
+    <title>Login | Pinoy Technology</title>
 
 
 </head>

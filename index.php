@@ -28,39 +28,16 @@ session_start();
               <li><img src="img-uploads/<?php echo $mypost['image']; ?>" alt="" srcset=""></li>
               <li><h3><?php echo $mypost['promo']; ?></h3></li>
               <li><small>Create one <?php echo $mypost['datetime']; ?></small></li>
-              <li><p class="description"><?php echo substr($desc = $mypost['description'], 0,200); ?></p></li>
-              <li><a href="post.php?promo=<?php echo $mypost['id'];?>">Read more</a></li>
+              <li><p class="description"><?php
+                // $strcut = substr($mypost);
+               echo substr($mypost['description'],0,500); 
+               ?>. . . <a href="post.php?promo=<?php echo $mypost['id'];?>">Read more</a></p></li>
+              <li></li>
             </ul>
             </div>
           <?php endforeach ?>
-
-          <h1>You are login</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <img src="<?php echo $_SESSION['userdata']['picture']['url']; ?>" alt="" sizes="" srcset="">
-        </div>
-        <div class="col-md-9">
-            <table class="table table-hover table-border">
-                <tbody>
-                    <tr>
-                        <td>Name: </td>
-                        <td><?php echo $_SESSION['userdata']['name']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>first Name: </td>
-                        <td><?php echo $_SESSION['userdata']['first_name']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name:</td>
-                        <td><?php echo $_SESSION['userdata']['last_name']; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     </div>
- 
               <!-- smooth scrool return to Top -->
          <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
     </div>	
-<?php include 'config/footer.php'; ?>       
+<?php include 'config/footer.php'; ?>    
